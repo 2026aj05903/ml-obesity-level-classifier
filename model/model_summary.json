@@ -1,0 +1,95 @@
+{
+  "sklearn_version": "1.9.0",
+  "split_seed": 2026,
+  "train_rows": 1669,
+  "test_rows": 418,
+  "classes": [
+    "Insufficient_Weight",
+    "Normal_Weight",
+    "Obesity_Type_I",
+    "Obesity_Type_II",
+    "Obesity_Type_III",
+    "Overweight_Level_I",
+    "Overweight_Level_II"
+  ],
+  "models": {
+    "Logistic Regression": {
+      "file": "logistic_regression.joblib",
+      "best_params": {
+        "C": 10
+      },
+      "cv_f1_macro": 0.5787,
+      "test_metrics": {
+        "Accuracy": 0.6148,
+        "AUC": 0.8929,
+        "Precision": 0.6124,
+        "Recall": 0.6052,
+        "F1": 0.5876,
+        "MCC": 0.5558
+      }
+    },
+    "Decision Tree": {
+      "file": "decision_tree.joblib",
+      "best_params": {
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      "cv_f1_macro": 0.7302,
+      "test_metrics": {
+        "Accuracy": 0.7847,
+        "AUC": 0.8718,
+        "Precision": 0.7789,
+        "Recall": 0.7794,
+        "F1": 0.7786,
+        "MCC": 0.7486
+      }
+    },
+    "KNN": {
+      "file": "knn.joblib",
+      "best_params": {
+        "n_neighbors": 3,
+        "weights": "distance"
+      },
+      "cv_f1_macro": 0.7507,
+      "test_metrics": {
+        "Accuracy": 0.7847,
+        "AUC": 0.9265,
+        "Precision": 0.7871,
+        "Recall": 0.7778,
+        "F1": 0.7701,
+        "MCC": 0.7515
+      }
+    },
+    "Naive Bayes": {
+      "file": "naive_bayes.joblib",
+      "best_params": {
+        "var_smoothing": 0.1
+      },
+      "cv_f1_macro": 0.5036,
+      "test_metrics": {
+        "Accuracy": 0.5383,
+        "AUC": 0.8543,
+        "Precision": 0.5918,
+        "Recall": 0.5238,
+        "F1": 0.4936,
+        "MCC": 0.4768
+      }
+    },
+    "Support Vector Machine": {
+      "file": "svm.joblib",
+      "best_params": {
+        "C": 10,
+        "gamma": 0.3
+      },
+      "cv_f1_macro": 0.8177,
+      "test_metrics": {
+        "Accuracy": 0.8325,
+        "AUC": 0.9706,
+        "Precision": 0.8338,
+        "Recall": 0.827,
+        "F1": 0.8276,
+        "MCC": 0.805
+      }
+    }
+  }
+}

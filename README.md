@@ -3,8 +3,8 @@
 **Course:** Machine Learning, M.Tech (AIML), BITS Pilani WILP · **Assignment 2**
 **Student:** Sangeet Brijpuriya · **ID:** 2026aj05903
 
-- **Live Streamlit app:** `<PASTE YOUR STREAMLIT COMMUNITY CLOUD LINK HERE>`
-- **GitHub repository:** `<PASTE YOUR GITHUB REPO LINK HERE>`
+- **Live Streamlit app:** `https://obesity-level-classifier.streamlit.app/`
+- **GitHub repository:** `https://github.com/2026aj05903/ml-obesity-level-classifier`
 
 ---
 

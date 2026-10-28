@@ -1,7 +1,7 @@
 # Obesity Level Classifier: five models, one Streamlit app
 
 **Course:** Machine Learning, M.Tech (AIML), BITS Pilani WILP · **Assignment 2**
-**Student:** Sangeet Brijpuriya · **ID:** 2026aj05903
+**Student:** Sangeet B · **ID:** 2026aj05903
 
 - **Live Streamlit app:** `https://obesity-level-classifier.streamlit.app/`
 - **GitHub repository:** `https://github.com/2026aj05903/ml-obesity-level-classifier`
@@ -43,7 +43,7 @@ Five classifiers (Logistic Regression, Decision Tree, K-Nearest Neighbours, Naiv
 
 ## c. GitHub repository
 
-`<PASTE YOUR GITHUB REPO LINK HERE>`
+`https://github.com/2026aj05903/ml-obesity-level-classifier`
 
 ```
 project-folder/
@@ -86,14 +86,14 @@ Test-set results (418 held-out rows):
 | Naive Bayes | 0.5383 | 0.8543 | 0.5918 | 0.5238 | 0.4936 | 0.4768 |
 | Support Vector Machine | **0.8325** | **0.9706** | **0.8338** | **0.8270** | **0.8276** | **0.8050** |
 
-Settings chosen by cross-validation: Logistic Regression `C=100`; Decision Tree unlimited depth, `min_samples_leaf=1`; KNN `k=3`, distance-weighted; Gaussian Naive Bayes `var_smoothing=0.1`; SVM with RBF kernel, `C=10`, `gamma=0.3`.
+Settings chosen by cross-validation: Logistic Regression `C=10`; Decision Tree unlimited depth, `min_samples_leaf=1`; KNN `k=3`, distance-weighted; Gaussian Naive Bayes `var_smoothing=0.1`; SVM with RBF kernel, `C=10`, `gamma=0.3`.
 
 ### Observations on each model
 
 | ML Model Name | Observation about model performance |
 |:--|:--|
-| Logistic Regression | Weak (accuracy 0.617). Train accuracy (0.629) is almost the same as test accuracy (0.617), so it is **underfitting**: a linear boundary cannot capture how lifestyle features combine to determine the level. Its AUC (0.893) is much better than its accuracy suggests, meaning it ranks the classes sensibly but often picks the wrong top class. |
-| Decision Tree | Accuracy 0.775 and MCC 0.737. CV chose a fully grown tree, which fits the training set perfectly (train accuracy 1.00) but drops to 0.775 on test, a sign of overfitting. Its AUC (0.865) is the second lowest despite good accuracy, because leaf probabilities are coarse and rank classes poorly. |
+| Logistic Regression | Weak (accuracy 0.615, macro-F1 0.588). Cross-validation on the training data also gave only 0.579 macro-F1, so the weakness is built into the model: a linear boundary cannot capture how lifestyle features combine to determine the level, so it underfits. Its AUC (0.893) is much better than its accuracy suggests, meaning it ranks the classes sensibly but often picks the wrong top class. |
+| Decision Tree | Accuracy 0.785 and MCC 0.749, level with KNN on accuracy and slightly ahead on F1 (0.779 vs 0.770). Cross-validation chose an unrestricted tree (no depth limit, one sample per leaf), a flexible model that is prone to overfitting. Its AUC (0.872) is the second lowest despite good accuracy, because a tree's leaf probabilities are coarse and rank the classes poorly. |
 | KNN | Accuracy 0.785 with the second-best AUC (0.927). `k=3` with distance weighting works well here. A likely reason is that most rows are synthetic points interpolated between real ones, so many test rows have a very similar neighbour in the training set. Train accuracy of 1.00 is expected with distance weighting, because each training point is its own nearest neighbour. |
 | Naive Bayes | The weakest model (accuracy 0.538, F1 0.494). It assumes features are independent given the class and Gaussian, but 8 of the 14 inputs are 0/1 one-hot columns and several features are related. It is poor on the middle classes, with recall of only 0.12 for Normal_Weight, 0.21 for Overweight_Level_II and 0.26 for Overweight_Level_I, while Obesity_Type_III is recalled perfectly (1.00). Like Logistic Regression it underfits (train 0.560, test 0.538). |
 | Support Vector Machine | Best on all six metrics (accuracy 0.833, AUC 0.971, MCC 0.805). The RBF kernel captures the non-linear structure that Logistic Regression and Naive Bayes miss. Obesity_Type_III is classified perfectly (precision and recall 1.00); the hardest classes are Normal_Weight (F1 0.667) and Overweight_Level_I (recall 0.673). Train accuracy (0.988) vs test (0.833) shows some remaining overfitting, yet it generalises best. |
